@@ -13,7 +13,7 @@ node{
   stage("deploy"){  
   sshagent(['deploy_Proj']) {
       scp target/sparkjava-hello-world-1.0.war ec2-user@18.216.248.203:/root/tom/webapps
-      // some block
+      
       }
   }
 }
