@@ -12,7 +12,7 @@ node{
   }
   stage("deploy"){  
   sshagent(['deploy_Proj']) {
-      scp
+      
       // some block
       }
   }
