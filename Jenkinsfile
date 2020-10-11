@@ -13,10 +13,5 @@ node{
   stage("E-mail notification"){
     mail bcc: '', body: 'Your build has been done please check the results.', cc: '', from: '', replyTo: '', subject: 'Jenkins Project-WarPipeline', to: 'sidharthvijayakumar7@gmail.com' 
   }
-  stage("deploy"){  
-  sshagent(['deploy_Proj']) {
-     sh "scp -o StrictHostKeyChecking=no target/sparkjava-hello-world-1.0.war ec2-user@3.19.215.79:/root/tom/webapps"
-      
-      }
-  }
+ 
 }
