@@ -8,10 +8,9 @@ node{
     sh "${mvnHome}/bin/mvn clean package"
   }
   stage("publish to s3") {
-    
-s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 's3-artifactsforjenkins
-', excludedFile: '/target', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'ap-southeast-1', showDirectlyInBrowser: false, sourceFile: '**/target/*.war', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'S3-Artifact', userMetadata: []  }
-  stage("E-mail notification"){
+   s3CopyArtifact buildSelector: lastSuccessful(), excludeFilter: '/target', filter: '**/target/*.war', flatten: false, optional: false, projectName: 'WarPipeline', target: '/var/lib/jenkins/workspace/WarPipeline' 
+   }
+    stage("E-mail notification"){
     mail bcc: '', body: 'Your build has been done please check the results.', cc: '', from: '', replyTo: '', subject: 'Jenkins Project-WarPipeline', to: 'sidharthvijayakumar7@gmail.com' 
   }
  
