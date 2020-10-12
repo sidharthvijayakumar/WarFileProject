@@ -9,8 +9,7 @@ node{
   }
   stage("publish to s3") {
   
-s3CopyArtifact buildSelector: lastSuccessful(stable: true), excludeFilter: '/target', filter: '**/target/*.war', flatten: false, optional: true, projectName: 'WarPipeline', target: ''
-    
+s3CopyArtifact buildSelector: lastSuccessful(stable: true), excludeFilter: '/target', filter: '**/target/*.war', flatten: true, optional: false, projectName: 'WarPipeline', target: ''    
   } 
    stage("E-mail notification"){
     mail bcc: '', body: 'Your build has been done please check the results.', cc: '', from: '', replyTo: '', subject: 'Jenkins Project-WarPipeline', to: 'sidharthvijayakumar7@gmail.com' 
