@@ -9,7 +9,7 @@ node{
   }
   stage("publish to s3") {
       
-     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'sparkjava-hello-world-1.0.war', bucket:'s3-artifactsforjenkins', path:'**/target/*.war')
+     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'**/target/*.war', bucket:'s3-artifactsforjenkins', path:'**/target/*.war')
     
   } 
    stage("E-mail notification"){
