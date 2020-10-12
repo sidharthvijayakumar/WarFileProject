@@ -9,7 +9,7 @@ node{
   }
   stage("publish to s3") {
       
-     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'.war', bucket:'s3-artifactsforjenkins', path:'**/target/*.war')
+     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'.war', bucket:'s3-artifactsforjenkins', path:'s3-artifactsforjenkins/target/')
     
   } 
    stage("E-mail notification"){
