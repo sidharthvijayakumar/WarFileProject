@@ -9,7 +9,7 @@ node{
   }
   stage("publish to s3") {
       
-  s3Upload(file:'*.war', bucket:'s3-artifactsforjenkins', path:'*/var/lib/jenkins/workspace/WarPipeline/target/sparkjava-hello-world-1.0.war')
+  s3Upload(file:'*.war', bucket:'s3-artifactsforjenkins', path:'target')
     
   } 
    stage("E-mail notification"){
