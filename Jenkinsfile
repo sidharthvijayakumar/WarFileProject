@@ -8,8 +8,7 @@ node{
     sh "${mvnHome}/bin/mvn clean package"
   }
   stage("publish to s3") {
-    s3CopyArtifact buildSelector: lastSuccessful(stable: true), excludeFilter: '', filter: '**/target/*.war', flatten: false, optional: false, projectName: 'WarPipeline', target: '/var/lib/jenkins/workspace/WarPipeline'
-  }
+s3Upload acl: 'Private', bucket: 's3-artifactsforjenkins', cacheControl: '', excludePathPattern: '', file: 'sparkjava-hello-world-1.0.war ', includePathPattern: '**/target/*.war', metadatas: [''], path: '/var/lib/jenkins/workspace/WarPipeline', redirectLocation: '', sseAlgorithm: '', tags: '', text: '', workingDir: ''  }
     stage("E-mail notification"){
     mail bcc: '', body: 'Your build has been done please check the results.', cc: '', from: '', replyTo: '', subject: 'Jenkins Project-WarPipeline', to: 'sidharthvijayakumar7@gmail.com' 
   }
