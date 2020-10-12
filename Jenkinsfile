@@ -14,7 +14,7 @@ node{
   } 
   stage("deploy"){  
   sshagent(['deploy_Proj']) {
-     sh "scp -o StrictHostKeyChecking=no target/sparkjava-hello-world-1.0.war ec2-user@3.19.215.79:/root/tom/webapps"
+     sh "scp -o StrictHostKeyChecking=no target/sparkjava-hello-world-1.0.war ec2-user@3.23.89.23:/root/tom/webapps"
       
       }
   }
