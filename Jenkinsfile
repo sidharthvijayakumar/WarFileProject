@@ -13,9 +13,10 @@ node{
     
   } 
   stage("Deploy"){
+    sshagent(['tomcat']) {
     sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@18.225.7.33:/tomcat/webapps"
   }
-  
+  }
 
    stage("E-mail notification"){
     mail bcc: '', body: 'Your build has been done please check the results.', cc: '', from: '', replyTo: '', subject: 'Jenkins Project-WarPipeline', to: 'sidharthvijayakumar7@gmail.com' 
