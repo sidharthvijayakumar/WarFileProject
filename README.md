@@ -10,3 +10,7 @@ https://kubesphere.io/docs/devops-user-guide/how-to-integrate/sonarqube/
 Configruing sonar in repo :
 https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/
 
+How to fail build on quality gate reports ?
+https://tomgregory.com/sonarqube-quality-gates-in-jenkins-build-pipeline/
+
+Check jacoco repo where i have implemeted this
