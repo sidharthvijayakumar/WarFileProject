@@ -64,27 +64,13 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>            </plugin>
-			<plugin>
-    			<groupId>org.jacoco</groupId>
-    			<artifactId>jacoco-maven-plugin</artifactId>
-    			<version>${jacoco.version}</version>
-    			<executions>
-        			<execution>
-            		<id>jacoco-initialize</id>
-            		<goals>
-                		<goal>prepare-agent</goal>
-            		</goals>
-        		</execution>
-        		<execution>
-            		<id>jacoco-site</id>
-            		<phase>package</phase>
-            		<goals>
-                		<goal>report</goal>
-            		</goals>
-        		</execution>
-    			</executions>
-			</plugin>
-			
+			<properties>
+				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+				<java.version>1.8</java.version>
+				<jacoco.version>0.8.5</jacoco.version>
+				<sonar.jacoco.reportPath>target/jacoco-ut.exec</sonar.jacoco.reportPath>
+				<sonar.jacoco.itReportPaths>target/jacoco-it.exec</sonar.jacoco.itReportPaths>
+			</properties>
 			
 		</plugins>
 	</build>
